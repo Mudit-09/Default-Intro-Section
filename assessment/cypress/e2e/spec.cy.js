@@ -3,7 +3,7 @@ import "cypress-real-events/support";
 
 describe("Intro Section with Dropdown Navigation", () => {
   beforeEach(() => {
-    cy.visit("index.html"); // Adjust the path if necessary
+    cy.visit("http://localhost:8081/workspace/<name-of-your-repository>/index.html"); // Adjust the path if necessary
   });
 
   describe("Navigation and Header", () => {
@@ -53,7 +53,7 @@ describe("Intro Section with Dropdown Navigation", () => {
     it("should display the hero image correctly on mobile view", () => {
       cy.viewport(375, 667); // Set to mobile view
       cy.get("main picture img")
-        .should("have.attr", "src", "./images/image-hero-mobile.png")
+        .should("have.attr", "src", "./assets/images/image-hero-mobile.png")
         .and("be.visible");
     });
 
@@ -62,7 +62,7 @@ describe("Intro Section with Dropdown Navigation", () => {
       cy.get("main picture source").should(
         "have.attr",
         "srcset",
-        "./images/image-hero-desktop.png"
+        "./assets/images/image-hero-desktop.png"
       );
     });
 
@@ -82,7 +82,7 @@ describe("Intro Section with Dropdown Navigation", () => {
         "client-maker.svg",
       ];
       clients.forEach((client) => {
-        cy.get(`.clients img[src='./images/${client}']`).should("be.visible");
+        cy.get(`.clients img[src='./assets/images/${client}']`).should("be.visible");
       });
     });
   });
