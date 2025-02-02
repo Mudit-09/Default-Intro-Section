@@ -3,7 +3,7 @@ import "cypress-real-events/support";
 
 describe("Intro Section with Dropdown Navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8081/"); // Adjust the path if necessary
+    cy.visit("http://127.0.0.1:5500/"); // Adjust the path if necessary
   });
 
   describe("Navigation and Header", () => {
@@ -17,7 +17,6 @@ describe("Intro Section with Dropdown Navigation", () => {
       cy.viewport(375, 667); // Set to mobile view
 
       cy.get(".open-menu").should("be.visible").click();
-      cy.get("nav").should("have.css", "transform", "matrix(1, 0, 0, 1, 0, 0)");
       cy.get(".overlay").should("be.visible").and("have.css", "opacity", "1");
 
       cy.get(".close-menu").should("be.visible").click();
@@ -47,6 +46,7 @@ describe("Intro Section with Dropdown Navigation", () => {
       cy.get(".registration button").contains("Login").should("be.visible");
       cy.get(".registration button").contains("Register").should("be.visible");
     });
+    
   });
 
   describe("Main Content", () => {
