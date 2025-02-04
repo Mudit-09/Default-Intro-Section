@@ -3,7 +3,7 @@ import "cypress-real-events/support";
 
 describe("Intro Section with Dropdown Navigation", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:5500/"); // Adjust the path if necessary
+    cy.visit("http://localhost:8081/"); // Adjust the path if necessary
   });
 
   describe("Navigation and Header", () => {
