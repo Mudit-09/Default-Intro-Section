@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeMenuBtn = document.querySelector(".close-menu");
     const nav = document.querySelector(".nav");
     const overlay = document.querySelector(".overlay");
-    const dropdownBtns = document.querySelectorAll(".dropdown-btn");
+    const navLinks = document.querySelectorAll(".nav-link");
   
     function openMobileMenu() {
       nav.classList.add("active");
@@ -19,30 +19,39 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeMenuBtn) closeMenuBtn.addEventListener("click", closeMobileMenu);
     if (overlay) overlay.addEventListener("click", closeMobileMenu);
   
-    dropdownBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const parentDropdown = btn.closest(".dropdown");
+    navLinks.forEach((navLink) => {
+      navLink.addEventListener("click", (e) => {
+        // Check if clicked item is a dropdown or contains a dropdown
+        const isDropdown = navLink.classList.contains("dropdown");
+        if (!isDropdown) return;
   
-        document.querySelectorAll(".dropdown").forEach((dropdown) => {
-          if (dropdown !== parentDropdown) {
-            dropdown.classList.remove("active");
-            const btnImg = dropdown.querySelector(".dropdown-btn");
+        e.stopPropagation();
+  
+        // Close other open dropdowns
+        navLinks.forEach((otherLink) => {
+          if (otherLink !== navLink) {
+            otherLink.classList.remove("link-open", "active");
+            const btnImg = otherLink.querySelector(".dropdown-btn");
             if (btnImg) btnImg.setAttribute("aria-expanded", "false");
           }
         });
   
-        const isActive = parentDropdown.classList.toggle("active");
-        btn.setAttribute("aria-expanded", isActive ? "true" : "false");
+        // Toggle link-open class expected by Cypress spec
+        const isActive = navLink.classList.toggle("link-open");
+        navLink.classList.toggle("active", isActive);
+  
+        const btn = navLink.querySelector(".dropdown-btn");
+        if (btn) btn.setAttribute("aria-expanded", isActive ? "true" : "false");
       });
     });
   
+    // Close dropdowns when clicking outside
     document.addEventListener("click", (e) => {
-      if (!e.target.closest(".dropdown")) {
-        document.querySelectorAll(".dropdown").forEach((dropdown) => {
-          dropdown.classList.remove("active");
-          const btnImg = dropdown.querySelector(".dropdown-btn");
-          if (btnImg) btnImg.setAttribute("aria-expanded", "false");
+      if (!e.target.closest(".nav-link")) {
+        navLinks.forEach((navLink) => {
+          navLink.classList.remove("link-open", "active");
+          const btn = navLink.querySelector(".dropdown-btn");
+          if (btn) btn.setAttribute("aria-expanded", "false");
         });
       }
     });
