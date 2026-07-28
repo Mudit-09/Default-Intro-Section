@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snap - Intro Section</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="#">
+      <img src="./assets/images/logo.svg" alt="snap's logo" class="logo">
+    </a>
+
+    <img src="./assets/images/icon-menu.svg" alt="open menu" class="open-menu">
+
+    <div class="overlay"></div>
+
+    <nav class="nav">
+      <img src="./assets/images/icon-close-menu.svg" alt="close menu" class="close-menu">
+
+      <ul class="nav-links">
+        <li class="nav-link dropdown">
+          <button class="dropdown-btn" aria-expanded="false">
+            Features
+            <img src="./assets/images/icon-arrow-down.svg" alt="" class="arrow">
+          </button>
+          <ul class="dropdown-list">
+            <li class="dropdown-link">
+              <a href="#" aria-label="todo-list">
+                <img src="./assets/images/icon-todo.svg" alt=""> Todo List
+              </a>
+            </li>
+            <li class="dropdown-link">
+              <a href="#">
+                <img src="./assets/images/icon-calendar.svg" alt=""> Calendar
+              </a>
+            </li>
+            <li class="dropdown-link">
+              <a href="#">
+                <img src="./assets/images/icon-reminders.svg" alt=""> Reminders
+              </a>
+            </li>
+            <li class="dropdown-link">
+              <a href="#">
+                <img src="./assets/images/icon-planning.svg" alt=""> Planning
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-link dropdown">
+          <button class="dropdown-btn" aria-expanded="false">
+            Company
+            <img src="./assets/images/icon-arrow-down.svg" alt="" class="arrow">
+          </button>
+          <ul class="dropdown-list">
+            <li class="dropdown-link"><a href="#">History</a></li>
+            <li class="dropdown-link"><a href="#">Our Team</a></li>
+            <li class="dropdown-link"><a href="#">Blog</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-link"><a href="#">Careers</a></li>
+        <li class="nav-link"><a href="#">About</a></li>
+      </ul>
+
+      <div class="registration">
+        <button class="login-btn">Login</button>
+        <button class="register-btn">Register</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <picture class="main picture">
+        <source media="(min-width: 768px)" srcset="./assets/images/image-hero-desktop.png">
+        <img src="./assets/images/image-hero-mobile.png" alt="Hero Illustration">
+      </picture>
+
+      <div class="text-content">
+        <h1>Make remote work</h1>
+        <p>
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button class="learn-more">Learn More</button>
+
+        <div class="clients">
+          <img src="./assets/images/client-databiz.svg" alt="Databiz">
+          <img src="./assets/images/client-audiophile.svg" alt="Audiophile">
+          <img src="./assets/images/client-meet.svg" alt="Meet">
+          <img src="./assets/images/client-maker.svg" alt="Maker">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://crio.do" target="_blank">Crio.do</a>. Coded by Ketan.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
