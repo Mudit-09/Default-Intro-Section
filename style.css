@@ -52,7 +52,10 @@
   
   .overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 50vw; /* Take up left 50% so overlay center point is never covered by nav */
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.75);
     visibility: hidden;
     opacity: 0;
@@ -69,7 +72,7 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 50%; /* Adjusted from 65% so center point of overlay remains uncovered */
+    width: 50%;
     height: 100vh;
     background-color: var(--almost-white);
     padding: 24px;
@@ -239,6 +242,10 @@
     .open-menu,
     .close-menu {
       display: none;
+    }
+  
+    .overlay {
+      width: 100vw;
     }
   
     .nav {
